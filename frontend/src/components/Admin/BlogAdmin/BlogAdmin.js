@@ -1,10 +1,10 @@
 import { useEffect, useState, useRef } from "react";
 import "./BlogAdmin.css";
+import { adminFetch } from '../../../utils/adminFetch'
 
 const API_URL = "http://localhost:5000/api/blogs";
 
 export default function BlogAdmin() {
-  const token = localStorage.getItem("admin_token");
   const [posts, setPosts] = useState([]);
   const [form, setForm] = useState({
     id: null,
@@ -37,24 +37,12 @@ export default function BlogAdmin() {
       fd.append("coverUrl", form.coverUrl);
     }
 
-    const res = await fetch(API_URL, {
+    const res = await adminFetch("/api/blogs", {
       method: "POST",
       headers: {
-        Authorization: `Bearer ${token}`,
       },
       body: fd,
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403) {
-      alert("دسترسی غیرمجاز");
-      return;
-    }
 
     if (res.ok) {
       fetch(API_URL)
@@ -76,22 +64,11 @@ export default function BlogAdmin() {
   };
 
   const deletePost = async (id) => {
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await adminFetch(`/api/blogs/${id}`, {
       method: "DELETE",
       headers: {
-        Authorization: `Bearer ${token}`,
       },
     });
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403){
-      alert("دسترسی غیرمجاز")
-      return;
-    }
 
     if (!res.ok) {
       alert("خطا در حذف پست");

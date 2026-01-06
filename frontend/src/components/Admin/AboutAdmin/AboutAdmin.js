@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./AboutAdmin.css";
+import { adminFetch } from '../../../utils/adminFetch'
 
 const API_URL = "http://localhost:5000/api/about";
 
 export default function AboutAdmin() {
-  const token = localStorage.getItem("admin_token");
   const [formData, setFormData] = useState({
     paragraph1: "",
     paragraph2: "",
@@ -38,25 +38,13 @@ export default function AboutAdmin() {
   const saveAbout = async (e) => {
     e.preventDefault();
 
-    const res = await fetch(API_URL, {
+    const res = await adminFetch("/api/about", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(formData),
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403){
-      alert("دسترسی غیرمجاز")
-      return;
-    }
 
     const data = await res.json();
 
