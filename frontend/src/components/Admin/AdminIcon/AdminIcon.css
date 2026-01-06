@@ -1,0 +1,19 @@
+.admin-icon {
+  position: fixed;
+  bottom: 25px;
+  left: 25px;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 10px 12px;
+  border-radius: 12px;
+  font-size: 25px;
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  cursor: pointer;
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.admin-icon:hover {
+  background: #00ff99;
+  transform: scale(1.12);
+}

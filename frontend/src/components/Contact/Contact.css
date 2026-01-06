@@ -1,0 +1,83 @@
+#contact {
+  padding: 100px 20px;
+  direction: rtl;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2rem;
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: auto;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.input-group input,
+.input-group textarea {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: 12px 15px;
+  border-radius: 12px;
+  color: #fff;
+  transition: 0.3s ease;
+  font-size: 1rem;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.input-group input:focus,
+.input-group textarea:focus {
+  border-color: #00ff99;
+  transform: scale(1.02);
+}
+
+textarea {
+  height: 160px;
+  resize: none;
+}
+
+.send-btn {
+  background: #00ff99;
+  border: none;
+  padding: 14px;
+  border-radius: 14px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-weight: 600;
+}
+
+.send-btn:hover {
+  transform: translateY(-3px);
+  background: #00e68c;
+}
+
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 20px;
+  }
+}

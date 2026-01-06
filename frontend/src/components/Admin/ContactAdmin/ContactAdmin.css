@@ -1,0 +1,76 @@
+.admin-contact {
+  padding: 2rem;
+  color: #e9f9f3;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+/* عنوان */
+.admin-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #00ffcc;
+}
+
+/* باکس هر پیام */
+.message-box {
+  background: rgba(0, 255, 204, 0.05);
+  border: 1px solid rgba(0, 255, 204, 0.18);
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 1rem;
+  transition: 0.3s;
+}
+
+/* پیام خوانده‌شده */
+.message-box.read {
+  opacity: 0.6;
+  background: rgba(0, 255, 204, 0.025);
+}
+
+/* موضوع پیام */
+.message-box h4 {
+  margin-bottom: 0.4rem;
+  color: #00ffcc;
+  font-size: 1rem;
+}
+
+/* نام و ایمیل */
+.message-box p {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  margin-bottom: 0.4rem;
+}
+
+/* اکشن‌ها */
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 0.6rem;
+}
+
+/* دکمه‌ها */
+.actions button {
+  background: rgba(0, 255, 204, 0.15);
+  border: 1px solid rgba(0, 255, 204, 0.35);
+  border-radius: 6px;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  color: #e9f9f3;
+  transition: 0.25s;
+}
+
+.actions button:hover {
+  background: rgba(0, 255, 204, 0.3);
+}
+
+/* دکمه حذف */
+.delete-btn {
+  background: rgba(255, 80, 80, 0.15) !important;
+  border-color: rgba(255, 80, 80, 0.35) !important;
+  color: #ff9a9a;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 80, 80, 0.35) !important;
+}

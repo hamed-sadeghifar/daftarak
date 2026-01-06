@@ -1,0 +1,28 @@
+/* کانتینر وسط صفحه */
+.app-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  position: relative;
+}
+
+/* برای نظم‌دهی داخلی */
+.app-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+  font-family: "Vazirmatn", sans-serif;
+}
+
+/* محتوا — 60٪ */
+.main-content {
+  width: 60%;
+  margin-right: 40%;
+  padding: 1rem 2rem;
+  color: #d9ece7;
+}
+
+section {
+  min-height: auto;
+  padding-top: 3rem;
+}

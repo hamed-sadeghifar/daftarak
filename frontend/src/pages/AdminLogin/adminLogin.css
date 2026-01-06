@@ -1,0 +1,79 @@
+.admin-loggin {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.admin-title {
+  margin-bottom: 1.5rem;
+  font-size: 1.4rem;
+  color: #00ffcc;
+  text-align: right;
+}
+
+.admin-loggin-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-loggin-form label {
+  margin: 1rem 0 0.4rem;
+  text-align: right;
+  color: #cfeee7;
+  font-size: 0.95rem;
+}
+
+.admin-loggin-form input {
+  width: 93%;
+  padding: 1rem;
+  margin-bottom: 0.5rem;
+  background: rgba(0,0,0,0.35);
+  color: #eafff7;
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 8px;
+  outline: none;
+  font-family: inherit;
+  transition: 0.3s;
+}
+
+.admin-loggin-form input:focus {
+  border-color: #00ffcc;
+  box-shadow: 0 0 12px #00ffcc33;
+}
+
+.save-btn {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1.4rem;
+  background: #00ffcc;
+  color: #00332b;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.save-btn:hover {
+  background: #00e5b8;
+}
+
+.back-home-btn {
+  margin-top: 12px;
+  background: transparent;
+  border: 1px solid #999;
+  color: #555;
+  padding: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: 0.2s;
+}
+
+.back-home-btn:hover {
+  background: #f2f2f2;
+}

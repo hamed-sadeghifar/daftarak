@@ -1,0 +1,53 @@
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/vazir-font-v16.1.0/Vazir-Thin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/vazir-font-v16.1.0/Vazir-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/vazir-font-v16.1.0/Vazir-Light.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Vazirmatn";
+  src: url("./assets/font/vazir-font-v16.1.0/Vazir-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: "Vazirmatn", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+    background: linear-gradient(
+    45deg,
+    #406e60 0%,
+    #113936 40%,
+    #010904 100%
+  );
+  background-attachment: fixed; /* بک‌گراند ثابت */
+  background-repeat: no-repeat;
+  background-size: cover;
+  direction: rtl;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
