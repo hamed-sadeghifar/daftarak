@@ -49,9 +49,21 @@ router.post(
       fs.existsSync(blog.cover) && fs.unlinkSync(blog.cover);
     }
 
-    const cover = req.file ? `/uploads/blog/${req.file.filename}` : coverUrl;
+    // مشخص کردن کاور
+    let cover;
+    let coverType;
 
-    const coverType = req.file ? "upload" : "url";
+    if (req.file) {
+      cover = `/uploads/blog/${req.file.filename}`;
+      coverType = "upload";
+    } else if (coverUrl) {
+      cover = coverUrl;
+      coverType = "url";
+    } else if (req.body.oldCover) {
+      // 👈 عکس قبلی
+      cover = req.body.oldCover;
+      coverType = blog.coverType; // همان نوع قبلی حفظ شود
+    }
 
     if (!blog) {
       blog = await Blog.create({

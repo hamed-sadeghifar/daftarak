@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import "./BlogAdmin.css";
-import { adminFetch } from '../../../utils/adminFetch'
+import { adminFetch } from "../../../utils/adminFetch";
 
 const API_URL = "http://localhost:5000/api/blogs";
 
@@ -13,6 +13,7 @@ export default function BlogAdmin() {
     content: "",
     coverUrl: "",
     cover: null,
+    oldCover: "",
   });
   const fileInputRef = useRef(null);
 
@@ -32,15 +33,16 @@ export default function BlogAdmin() {
     if (form.id) fd.append("id", form.id);
 
     if (form.cover) {
-      fd.append("cover", form.cover); // ← اسم دقیق
+      fd.append("cover", form.cover);
     } else if (form.coverUrl) {
       fd.append("coverUrl", form.coverUrl);
+    } else if (form.oldCover) {
+      fd.append("oldCover", form.oldCover); // 👈 مهم
     }
 
     const res = await adminFetch("/api/blogs", {
       method: "POST",
-      headers: {
-      },
+      headers: {},
       body: fd,
     });
 
@@ -66,8 +68,7 @@ export default function BlogAdmin() {
   const deletePost = async (id) => {
     const res = await adminFetch(`/api/blogs/${id}`, {
       method: "DELETE",
-      headers: {
-      },
+      headers: {},
     });
 
     if (!res.ok) {
@@ -97,7 +98,19 @@ export default function BlogAdmin() {
               <span>{p.source}</span>
             </div>
             <div>
-              <button onClick={() => setForm({ ...p, id: p._id })}>
+              <button
+                onClick={() =>
+                  setForm({
+                    id: p._id,
+                    title: p.title,
+                    source: p.source,
+                    content: p.content,
+                    cover: null,
+                    coverUrl: "",
+                    oldCover: p.cover, // 👈 عکس قبلی
+                  })
+                }
+              >
                 ویرایش
               </button>
               <button onClick={() => deletePost(p._id)}>حذف</button>

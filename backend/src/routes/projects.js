@@ -23,7 +23,7 @@ router.post(
   adminAuth,
   uploadProjectImage.single("img"),
   async (req, res) => {
-    const { id, title, desc, tech, demo, imgUrl } = req.body;
+    const { id, title, desc, tech, demo, imgUrl, oldImg } = req.body;
 
     let project = id ? await Project.findById(id) : null;
 
@@ -33,9 +33,20 @@ router.post(
       fs.existsSync(oldPath) && fs.unlinkSync(oldPath);
     }
 
-    const img = req.file ? `/uploads/projects/${req.file.filename}` : imgUrl;
+    let img;
+    let imgType;
 
-    const imgType = req.file ? "upload" : "url";
+    if (req.file) {
+      img = `/uploads/projects/${req.file.filename}`;
+      imgType = "upload";
+    } else if (imgUrl) {
+      img = imgUrl;
+      imgType = "url";
+    } else if (oldImg) {
+      // 👈 حفظ عکس قبلی
+      img = oldImg;
+      imgType = project ? project.imgType : "url";
+    }
 
     const data = {
       title,

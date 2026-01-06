@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import "./ProjectsAdmin.css";
-import { adminFetch } from '../../../utils/adminFetch'
+import { adminFetch } from "../../../utils/adminFetch";
 
 const API_URL = "http://localhost:5000/api/projects";
 
@@ -16,6 +16,7 @@ export default function AdminProjects() {
     demo: "",
     imgFile: null,
     imgUrl: "",
+    oldImg: "",
   });
 
   /* ======================
@@ -46,6 +47,8 @@ export default function AdminProjects() {
       fd.append("img", formData.imgFile);
     } else if (formData.imgUrl) {
       fd.append("imgUrl", formData.imgUrl);
+    } else if (formData.oldImg) {
+      fd.append("oldImg", formData.oldImg);
     }
 
     const res = await adminFetch("/api/projects", {
@@ -102,7 +105,8 @@ export default function AdminProjects() {
       tech: p.tech.join(", "),
       demo: p.demo,
       imgFile: null,
-      imgUrl: p.imgType === "url" ? p.img : "",
+      imgUrl: "",
+      oldImg: p.img,
     });
 
     if (fileRef.current) fileRef.current.value = "";
