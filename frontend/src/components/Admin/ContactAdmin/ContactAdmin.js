@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import "./ContactAdmin.css";
-
-const API_URL = "http://localhost:5000/api/contact";
+import { adminFetch } from '../../../utils/adminFetch'
 
 export default function ContactAdmin() {
-  const token = localStorage.getItem("admin_token");
   const [messages, setMessages] = useState([]);
 
   // ======================
@@ -12,53 +10,24 @@ export default function ContactAdmin() {
   // ======================
   useEffect(() => {
     const fetchMessages = async () => {
-      const res = await fetch(API_URL, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await adminFetch("/api/contact");
 
-      // 🔐 هندل 403
-      if (res.status === 401) {
-        localStorage.removeItem("admin_token");
-        window.location.href = "/varede-panel-sho";
-        return;
-      }
-
-      if (res.status === 403) {
-        alert("دسترسی غیرمجاز");
-        return;
-      }
+      if (!res) return;
 
       const data = await res.json();
       setMessages(data);
     };
 
     fetchMessages();
-  }, [token]);
+  }, []);
 
   // ======================
   // DELETE message
   // ======================
   const deleteMessage = async (id) => {
-    const res = await fetch(`${API_URL}/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const res = await adminFetch(`/api/contact/${id}`, {
+      method: "DELETE"
     });
-
-    // 🔐 هندل 403
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403){
-      alert("دسترسی غیرمجاز")
-      return;
-    }
 
     if (!res.ok) {
       alert("خطا در حذف پیام");
@@ -72,24 +41,9 @@ export default function ContactAdmin() {
   // MARK AS READ
   // ======================
   const markRead = async (id) => {
-    const res = await fetch(`${API_URL}/${id}/read`, {
-      method: "PATCH",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+    const res = await adminFetch(`/api/contact/${id}/read`, {
+      method: "PATCH"
     });
-
-    // 🔐 هندل 403
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403){
-      alert("دسترسی غیرمجاز")
-      return;
-    }
 
     if (!res.ok) {
       alert("خطا در بروزرسانی پیام");

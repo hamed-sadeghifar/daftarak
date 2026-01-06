@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./SidebarAdmin.css";
+import { adminFetch } from '../../../utils/adminFetch'
 
 const API_URL = "http://localhost:5000/api/sidebar";
 
 export default function SidebarAdmin() {
-  const token = localStorage.getItem("admin_token");
   const [form, setForm] = useState({
     name: "",
     title: "",
@@ -30,25 +30,13 @@ export default function SidebarAdmin() {
      SAVE sidebar
   ===================== */
   const saveSidebar = async () => {
-    const res = await fetch(API_URL, {
+    const res = await adminFetch("/api/sidebar", {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(form),
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403) {
-      alert("دسترسی غیرمجاز");
-      return;
-    }
 
     if (res.ok) alert("تنظیمات سایدبار ذخیره شد ✅");
   };

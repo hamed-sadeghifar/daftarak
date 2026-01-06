@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import "./SkillsAdmin.css";
+import { adminFetch } from '../../../utils/adminFetch'
 
 const API_URL = "http://localhost:5000/api/skills";
 
 export default function SkillsAdmin() {
-  const token = localStorage.getItem("admin_token");
   const [skills, setSkills] = useState([]);
   const [editingId, setEditingId] = useState(null);
 
@@ -44,23 +44,11 @@ export default function SkillsAdmin() {
       formData.append("logo", form.logo);
     }
 
-    const res = await fetch(editingId ? `${API_URL}/${editingId}` : API_URL, {
+    const res = await adminFetch(editingId ? `/api/skills/${editingId}` : "/api/skills", {
       method: editingId ? "PATCH" : "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       body: formData,
     });
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403) {
-      alert("دسترسی غیرمجاز");
-      return;
-    }
+    if (!res) return;
 
     const data = await res.json();
 
@@ -79,23 +67,9 @@ export default function SkillsAdmin() {
   const deleteSkill = async (id) => {
     if (!window.confirm("حذف این مهارت؟")) return;
 
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await adminFetch(`/api/skills/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403) {
-      alert("دسترسی غیرمجاز");
-      return;
-    }
 
     if (!res.ok) {
       alert("خطا در حذف مهارت");

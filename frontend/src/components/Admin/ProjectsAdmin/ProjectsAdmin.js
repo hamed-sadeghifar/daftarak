@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import "./ProjectsAdmin.css";
+import { adminFetch } from '../../../utils/adminFetch'
 
 const API_URL = "http://localhost:5000/api/projects";
 
 export default function AdminProjects() {
-  const token = localStorage.getItem("admin_token");
   const [projects, setProjects] = useState([]);
   const fileRef = useRef(null);
 
@@ -48,24 +48,10 @@ export default function AdminProjects() {
       fd.append("imgUrl", formData.imgUrl);
     }
 
-    const res = await fetch(API_URL, {
+    const res = await adminFetch("/api/projects", {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       body: fd,
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403){
-      alert("دسترسی غیرمجاز")
-      return;
-    }
 
     if (res.ok) {
       fetch(API_URL)
@@ -93,23 +79,9 @@ export default function AdminProjects() {
   const deleteProject = async (id) => {
     if (!window.confirm("حذف پروژه؟")) return;
 
-    const res = await fetch(`${API_URL}/${id}`, {
+    const res = await adminFetch(`/api/projects/${id}`, {
       method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
-
-    if (res.status === 401) {
-      localStorage.removeItem("admin_token");
-      window.location.href = "/varede-panel-sho";
-      return;
-    }
-
-    if (res.status === 403) {
-      alert("دسترسی غیرمجاز");
-      return;
-    }
 
     if (!res.ok) {
       alert("خطا در حذف پروژه");
