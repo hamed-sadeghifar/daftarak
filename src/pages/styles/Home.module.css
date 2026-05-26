@@ -1,0 +1,29 @@
+.hero {
+  margin-bottom: 36px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+
+  margin-bottom: 10px;
+}
+
+.hero p {
+  color: var(--text-secondary);
+
+  line-height: 1.9;
+}
+
+.notesGrid {
+  display: grid;
+
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+  gap: 24px;
+}
+
+@media (max-width: 576px) {
+  .notesGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,98 @@
+.page {
+  max-width: 950px;
+
+  margin: 0 auto;
+}
+
+.note {
+  border-radius: 36px;
+
+  padding: 36px;
+}
+
+.top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 28px;
+}
+
+.top span {
+  height: 36px;
+
+  padding-inline: 14px;
+
+  border-radius: 999px;
+
+  background: var(--bg-form);
+
+  display: flex;
+  align-items: center;
+}
+
+.editBtn {
+  width: 52px;
+  height: 52px;
+  color: var(--text-primary);
+  border-radius: 18px;
+
+  background: var(--bg-form);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.deleteBtn {
+  width: 52px;
+  height: 52px;
+  color: var(--text-primary);
+  border-radius: 18px;
+
+  background: var(--bg-form);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 0.25s;
+}
+
+.editBtn:hover,
+.deleteBtn:hover {
+  background: var(--card);
+
+  transform: translateY(-2px);
+}
+
+.editBtn svg,
+.deleteBtn svg {
+  font-size: 1.15rem;
+}
+
+.note h1 {
+  font-size: 2.2rem;
+
+  margin-bottom: 16px;
+}
+
+.date {
+  margin-bottom: 36px;
+
+  color: var(--text-secondary);
+}
+
+.text {
+  line-height: 2.4;
+
+  white-space: pre-wrap;
+
+  font-size: 1.05rem;
+}

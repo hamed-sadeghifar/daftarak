@@ -1,0 +1,104 @@
+.card {
+  background: var(--card);
+
+  border: 1px solid var(--border);
+
+  border-radius: 26px;
+
+  padding: 22px;
+
+  min-height: 240px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: var(--transition);
+
+  box-shadow: var(--shadow-sm);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+
+  box-shadow: var(--shadow-md);
+}
+
+.top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  gap: 16px;
+}
+
+.top h3 {
+  font-size: 1.1rem;
+  line-height: 1.8;
+}
+.active-pin {
+  fill: var(--primary);
+}
+.top button {
+  font-size: 1.2rem;
+}
+
+.card p {
+  margin-block: 18px;
+
+  color: var(--text-secondary);
+
+  line-height: 2;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer span {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.actions button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  color: var(--text-primary);
+  border-radius: 14px;
+
+  background: var(--surface);
+
+  transition: var(--transition);
+}
+
+.actions button:hover {
+  background: var(--secondary);
+}
+
+.bookmarkSvg {
+  font-size: 1.2rem;
+  margin-left: 5px;
+  color: var(--primary);
+}
+
+.cardTop {
+  display: flex;
+  align-items: starts;
+}

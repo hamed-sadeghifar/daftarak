@@ -1,0 +1,230 @@
+.page {
+  max-width: 900px;
+
+  margin: 0 auto;
+}
+
+.top {
+  margin-bottom: 32px;
+}
+
+.top h1 {
+  font-size: 2rem;
+
+  margin-bottom: 10px;
+}
+
+.top p {
+  color: var(--text-secondary);
+}
+
+.form {
+  background: var(--bg-form);
+
+  border: 1px solid var(--border);
+
+  border-radius: 30px;
+
+  padding: 32px;
+
+  backdrop-filter: blur(10px);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-bottom: 28px;
+}
+
+.group label {
+  font-size: 0.95rem;
+
+  font-weight: 600;
+}
+
+.group input,
+.group textarea,
+.group select {
+  width: 100%;
+
+  background: var(--surface);
+
+  border-radius: 18px;
+
+  padding: 16px 18px;
+
+  color: var(--text-primary);
+
+  transition: 0.25s;
+}
+
+.group input:focus,
+.group textarea:focus,
+.group select:focus {
+  background: var(--card);
+}
+
+.group input {
+  height: 58px;
+}
+
+.group textarea {
+  min-height: 320px;
+
+  resize: none;
+
+  line-height: 2;
+}
+
+.group select {
+  height: 58px;
+  border: 1px solid var(--primary-hover);
+  cursor: pointer;
+}
+
+.row {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 24px;
+}
+
+.colors {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  height: 58px;
+}
+
+.colors button {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 50%;
+
+  transition: 0.25s;
+
+  border: 3px solid transparent;
+}
+
+.colors button:hover {
+  transform: scale(1.08);
+}
+
+.color1 {
+  background: var(--color-1);
+}
+
+.color2 {
+  background: var(--color-2);
+}
+
+.color3 {
+  background: var(--color-3);
+}
+
+.color4 {
+  background: var(--color-4);
+}
+
+.active-border {
+  border: 2px solid var(--primary) !important;
+}
+
+.bottom {
+  margin-top: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.pinBtn {
+  height: 54px;
+
+  padding-inline: 18px;
+
+  border-radius: 18px;
+
+  background: var(--surface);
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  transition: 0.25s;
+}
+
+.active-pin {
+  color: var(--primary);
+  fill: var(--primary);
+}
+
+.pinBtn:hover {
+  background: var(--card);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cancelBtn,
+.saveBtn {
+  height: 54px;
+
+  padding-inline: 22px;
+
+  border-radius: 18px;
+
+  transition: 0.25s;
+}
+
+.cancelBtn {
+  background: var(--surface);
+}
+
+.cancelBtn:hover {
+  background: var(--card);
+}
+
+.saveBtn {
+  background: var(--primary);
+
+  color: var(--card);
+}
+
+.saveBtn:hover {
+  background: var(--primary-hover);
+}
+
+@media (max-width: 768px) {
+  .form {
+    padding: 22px;
+  }
+
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actions button {
+    flex: 1;
+  }
+}

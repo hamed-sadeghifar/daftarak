@@ -1,0 +1,40 @@
+@font-face {
+  font-family: "Vazir";
+  src: url("../assets/fonts/Vazir-FD.eot");
+  src:
+    url("../assets/fonts/Vazir-FD.eot?#iefix") format("embedded-opentype"),
+    url("../assets/fonts/Vazir-FD.woff2") format("woff2"),
+    url("../assets/fonts/Vazir-FD.woff") format("woff"),
+    url("../assets/fonts/Vazir-FD.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: "Vazir", sans-serif !important;
+
+  direction: rtl;
+
+  background: var(--bg);
+
+  color: var(--text-primary);
+
+  transition: var(--transition);
+
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+}
+button,
+svg {
+  cursor: pointer;
+}

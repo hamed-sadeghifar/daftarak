@@ -1,0 +1,172 @@
+.header {
+  height: 84px;
+
+  border-bottom: 1px solid var(--border);
+
+  background: var(--bg-header);
+
+  backdrop-filter: blur(10px);
+}
+
+.wrapper {
+  height: 100%;
+
+  padding-inline: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.logo span {
+  font-size: 1.5rem;
+}
+
+.logo h2 {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.searchBox {
+  flex: 1;
+
+  max-width: 560px;
+
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding-inline: 16px;
+
+  background: var(--bg-form);
+
+  border-radius: 16px;
+
+  transition: 0.25s;
+}
+
+.searchBox:focus-within {
+  background: var(--card);
+}
+
+.searchBox svg {
+  font-size: 1.05rem;
+
+  color: var(--text-secondary);
+
+  flex-shrink: 0;
+}
+
+.searchBox input {
+  width: 100%;
+
+  font-size: 0.95rem;
+
+  color: var(--text-primary);
+}
+
+.searchBox input::placeholder {
+  color: var(--text-placeholder);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  flex-shrink: 0;
+}
+
+.themeBtn,
+.addBtn {
+  height: 50px;
+
+  border-radius: 16px;
+
+  transition: 0.25s;
+}
+
+.themeBtn {
+  width: 50px;
+
+  background: var(--surface);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.themeBtn:hover {
+  transform: translateY(-2px);
+}
+
+.themeBtn svg {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+}
+
+.addBtn {
+  padding-inline: 18px;
+
+  background: var(--primary);
+
+  color: var(--card);
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.addBtn:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 992px) {
+  .header {
+    height: auto;
+  }
+
+  .wrapper {
+    flex-wrap: wrap;
+
+    padding-block: 16px;
+  }
+
+  .searchBox {
+    order: 3;
+
+    max-width: 100%;
+    width: 100%;
+  }
+}
+
+@media (max-width: 576px) {
+  .wrapper {
+    padding-inline: 16px;
+  }
+
+  .addBtn span {
+    display: none;
+  }
+
+  .addBtn {
+    width: 50px;
+
+    justify-content: center;
+
+    padding: 0;
+  }
+}
