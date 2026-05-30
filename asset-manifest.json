@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/daftarak/static/css/main.09aeacbf.css",
-    "main.js": "/daftarak/static/js/main.c6a64db1.js",
+    "main.js": "/daftarak/static/js/main.80a91076.js",
     "static/media/Vazir-FD.eot": "/daftarak/static/media/Vazir-FD.de91857e177d6cec5379.eot",
     "static/media/Vazir-FD.ttf": "/daftarak/static/media/Vazir-FD.d85231668a0f4bcd5158.ttf",
     "static/media/Vazir-FD.woff": "/daftarak/static/media/Vazir-FD.917e57ed7046870b3a35.woff",
     "static/media/Vazir-FD.woff2": "/daftarak/static/media/Vazir-FD.35df431f9a0eacd4b53d.woff2",
     "index.html": "/daftarak/index.html",
     "main.09aeacbf.css.map": "/daftarak/static/css/main.09aeacbf.css.map",
-    "main.c6a64db1.js.map": "/daftarak/static/js/main.c6a64db1.js.map"
+    "main.80a91076.js.map": "/daftarak/static/js/main.80a91076.js.map"
   },
   "entrypoints": [
     "static/css/main.09aeacbf.css",
-    "static/js/main.c6a64db1.js"
+    "static/js/main.80a91076.js"
   ]
 }
