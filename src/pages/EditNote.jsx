@@ -1,15 +1,9 @@
 import MainLayout from "../layouts/MainLayout";
 import styles from "./styles/CreateNote.module.css";
 
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
-import { useNavigate } from "react-router-dom";
-
-import { useParams } from "react-router-dom";
-
-import { useState } from "react";
-
-import { Link } from "react-router-dom";
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 import { HiOutlineBookmark } from "react-icons/hi";
 

@@ -1,19 +1,15 @@
 import MainLayout from "../layouts/MainLayout";
 import styles from "./styles/NoteDetails.module.css";
 
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 
 import { useContext } from "react";
 
 import { NoteContext } from "../context/NoteContext";
 
-import { Link } from "react-router-dom";
-
 import { MdOutlineEdit } from "react-icons/md";
 
 import { HiOutlineTrash } from "react-icons/hi";
-
-import { useNavigate } from "react-router-dom";
 
 const categoryMap = {
   personal: "شخصی",
