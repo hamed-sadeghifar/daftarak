@@ -1,5 +1,8 @@
 Daftarak 📝
 
+🔗 Live Demo:
+https://hamed73esf.github.io/daftarak
+
 Daftarak is a modern Persian note-taking application built with React, focused on clean architecture, smooth user experience, and a warm minimal UI.
 
 ⸻
